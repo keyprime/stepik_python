@@ -1,0 +1,44 @@
+# вход: минуты; выход: часы и минуты
+n = int(input()) # 480; 512
+hours = n % (60 * 24) // 60
+minutes = n % 60
+print(hours)      # 8; 8
+print(minutes)    # 0; 32
+
+#
+print(*divmod(int(input()), 60), sep='\n')
+
+# вход: часы и минуты; выход: часы и минуты
+x = int(input()) # 480; 475
+h = int(input()) # 1; 1
+m = int(input()) # 2; 55
+h = h * 60
+n = x + h + m
+hours = n % (60 * 24) // 60
+minutes = n % 60
+print(hours)      # 9; 9
+print(minutes)    # 2; 50
+
+#
+a,b,c=(int(input()) for i in range(3))
+print('%s\n%s' % ((a+c)//60+b, (a+c)%60))
+
+#
+print(*divmod((int(input())+ int(input()) * 60 + int(input())), 60), sep='\n')
+
+#
+x = int(input())
+h = int(input())
+m = int(input())
+x += m
+print(x//60 + h)
+print(x%60)
+
+#
+x = int(input()) + 60 * int(input()) + int(input());
+print(x // 60);
+print(x % 60);
+
+#
+t = int(input()) + 60 * int(input()) + int(input())
+print(t // 60, t % 60, sep = '\n')
