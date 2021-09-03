@@ -1,0 +1,16 @@
+# формула Герона для вычисления площади треугольника
+from math import sqrt
+a = int(input())        # 3
+b = int(input())        # 4
+c = int(input())        # 5
+p = (a + b + c) / 2
+s = sqrt (p * ((p-a) * (p-b) * (p-c)))
+print (s)               # 6.0
+
+#
+a = int(input())
+b = int(input())
+c = int(input())
+p = (a + b + c) / 2
+s = (p * (p - a) * (p - b) * (p - c)) ** 0.5
+print(s)
