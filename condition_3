@@ -1,0 +1,86 @@
+#  x in (−15,12]∪(14,17)∪[19,+∞)
+x = int(input())              # 20
+if -15 < x <= 12 or 14 < x < 17 or x >= 19:
+    print ('True')            # True
+else:
+    print ('False')
+
+#
+print(-15< int(input()) not in[13,14,17,18])
+
+# ввод: три строки: первое число, второе число и операция
+a = float(input())        # -12.0
+b = float(input())        # -8.0
+c = str(input())          # *
+if (c=='mod' or c=='div' or c=='/') and b == 0:
+    print ('Деление на 0!')
+elif c == '+':
+        print (a + b)
+elif c == '-':
+        print (a - b)
+elif c == '/' and b != 0:
+        print (a / b)
+elif c == '*':
+        print (a * b)       # 96.0
+elif c == 'mod' and b != 0:
+        print (a % b)
+elif c == 'pow':
+        print (a ** b)
+elif c == 'div' and b != 0:
+        print (a // b)
+else:
+    print("Неверный знак операции!")
+
+#
+operations = {
+      "+": lambda x, y: x + y,
+      "-": lambda x, y: x - y,
+      "/": lambda x, y: x / y,
+      "*": lambda x, y: x * y,
+      "mod": lambda x, y: x % y,
+      "pow": lambda x, y: x ** y,
+      "div": lambda x, y: x // y
+}
+
+x, y = float(input()), float(input())
+operation = input()
+
+if operation in ["mod", "div", "/"] and y == 0:
+    print("Деление на 0!")
+else:
+    print(operations[operation](x, y))
+
+#
+a, b = float(input()), float(input())
+
+print({
+    '+':   a + b,
+    '-':   a - b,
+    '*':   a * b,
+    '/':   a / b if b != 0 else "Деление на 0!",
+    'mod': a % b if b != 0 else "Деление на 0!",
+    'pow': a ** b,
+    'div': a // b if b != 0 else "Деление на 0!"
+}[input()])
+
+#
+try:
+    print (eval((('({0}){2}{1}').format(input(), input(), input())
+                                .replace('mod','%')
+                                .replace('pow','**')
+                                .replace('div','//'))))
+except ZeroDivisionError:
+    print('Деление на 0!')
+
+#
+a = float(input())
+b = float(input())
+c = input()
+if c == "mod": d = "%"
+elif c == "pow": d = "**"
+elif c == "div": d = "//"
+else: d = str(c)
+z = ("("+str(a)+")"+d+str(b))
+if b == 0 and (d == "/" or d == "//" or d =="%"):
+    print("Деление на 0!")
+else: print(eval(z))
