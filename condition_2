@@ -1,0 +1,17 @@
+# 1900≤n≤3000
+n = int(input())              # 2100
+if n % 4 == 0 and not (n % 100 == 0) or n % 400 == 0:
+    print ('Високосный')
+else:
+    print ('Обычный')         # Обычный
+
+#
+a = int(input())
+if a % 4 == 0 and a % 100 != 0 or a % 400 == 0:
+    print("Високосный")
+else:
+    print("Обычный")
+
+#
+y = int(input())
+print('Високосный' if not y%400 or not y%4 and y%100 else 'Обычный')
