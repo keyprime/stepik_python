@@ -1,0 +1,67 @@
+# A <= H <= B
+A = int(input())            # 6
+B = int(input())            # 10
+H = int(input())            # 8
+if H >= A and H <= B:
+    print ('Это нормально') # Это нормально
+elif H >= B:
+    print ('Пересып')
+else:
+    print ('Недосып')
+
+#
+a = int(input())
+b = int(input())
+h = int(input())
+if h > b:
+  print('Пересып')
+elif h < a:
+  print('Недосып')
+else:
+  print('Это нормально')
+
+#
+a = int(input())   
+b = int(input()) 
+h = int(input())  
+if a <= h <= b:
+    print ('Это нормально')
+elif a >= h <= b:
+    print ('Недосып')
+else: 
+    print ('Пересып') 
+
+#
+a = int(input())
+b = int(input())
+h = int(input())
+print(('Недосып', 'Это нормально', 'Пересып')[(h > b) - (h < a) + 1])
+
+#
+a, b, h = (int(input()) for i in range(3))
+print(('Недосып', 'Это нормально', 'Пересып')[(h >= a) + (h > b)])
+
+#
+a, b, h = (int(input()) for _ in range(3))
+print('Это нормально' * (a <= h <= b) + 'Недосып' * (h < a) + 'Пересып' * (h > b))
+
+#
+a, b, h = [int(input()) for i in range(3)]
+print('Пересып' if h > b else 'Недосып' if h < a else 'Это нормально')
+
+#
+a, b, h = (int(input()) for _ in range(3))
+print((h < a) and 'Недосып' or (h > b) and 'Пересып' or 'Это нормально')
+
+#
+f = lambda a, b, h: "Недосып" if h < a else "Пересып" if h > b else "Это нормально"
+print(f(int(input()), int(input()), int(input())))
+
+#
+print((lambda a, b, h: 'Это нормально'*(a <= h <= b)+'Недосып'*(h < a)+'Пересып'*(h > b))(*(int(input()) for _ in range(3))))
+
+#
+exec("print('Это нормально'*(a <= h <= b)+'Недосып'*(h < a)+'Пересып'*(h > b))", {k:int(input()) for k in ('a', 'b', 'h')})
+
+#
+[print('Это нормально' if a <= h <= b else 'Недосып' if h < a else 'Пересып') for a, b, h in [[int(input()) for _ in 'сон']]]
