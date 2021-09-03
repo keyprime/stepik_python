@@ -1,0 +1,174 @@
+# ввод: три строки: первое число, второе число и операция
+a = float(input())        # -12.0
+b = float(input())        # -8.0
+c = str(input())          # *
+if (c=='mod' or c=='div' or c=='/') and b == 0:
+    print ('Деление на 0!')
+elif c == '+':
+        print (a + b)
+elif c == '-':
+        print (a - b)
+elif c == '/' and b != 0:
+        print (a / b)
+elif c == '*':
+        print (a * b)       # 96.0
+elif c == 'mod' and b != 0:
+        print (a % b)
+elif c == 'pow':
+        print (a ** b)
+elif c == 'div' and b != 0:
+        print (a // b)
+else:
+    print("Неверный знак операции!")
+
+#
+operations = {
+      "+": lambda x, y: x + y,
+      "-": lambda x, y: x - y,
+      "/": lambda x, y: x / y,
+      "*": lambda x, y: x * y,
+      "mod": lambda x, y: x % y,
+      "pow": lambda x, y: x ** y,
+      "div": lambda x, y: x // y
+}
+
+x, y = float(input()), float(input())
+operation = input()
+
+if operation in ["mod", "div", "/"] and y == 0:
+    print("Деление на 0!")
+else:
+    print(operations[operation](x, y))
+
+#
+a, b = float(input()), float(input())
+
+print({
+    '+':   a + b,
+    '-':   a - b,
+    '*':   a * b,
+    '/':   a / b if b != 0 else "Деление на 0!",
+    'mod': a % b if b != 0 else "Деление на 0!",
+    'pow': a ** b,
+    'div': a // b if b != 0 else "Деление на 0!"
+}[input()])
+
+#
+try:
+    print (eval((('({0}){2}{1}').format(input(), input(), input())
+                                .replace('mod','%')
+                                .replace('pow','**')
+                                .replace('div','//'))))
+except ZeroDivisionError:
+    print('Деление на 0!')
+
+#
+a = float(input())
+b = float(input())
+c = input()
+if c == "mod": d = "%"
+elif c == "pow": d = "**"
+elif c == "div": d = "//"
+else: d = str(c)
+z = ("("+str(a)+")"+d+str(b))
+if b == 0 and (d == "/" or d == "//" or d =="%"):
+    print("Деление на 0!")
+else: print(eval(z))
+
+#
+x = input()
+y = input()
+op = input()
+# replace words to ops
+op = op.replace('mod', '%').replace('pow', '**').replace('div', '//')
+# evaluate string as python code
+try:
+    print(eval("(%s) %s (%s)" % (x, op, y)))
+except ZeroDivisionError:
+    print("Деление на 0!")
+
+#
+first = float(input())
+second = float(input())
+operation = str(input())
+
+operations = {
+    '+': first + second,
+    '-': first - second,
+    '*': first * second,
+    'pow': first ** second,
+    '/': first / second if second != 0 else "Деление на 0!",
+    'mod': first % second if second != 0 else "Деление на 0!",
+    'div': first // second if second != 0 else "Деление на 0!"
+}
+
+print(operations.get(operation))
+
+#
+x = [input() for i in range(3)]
+act = {'div':'//', 'mod':'%', 'pow':'**', '+':'+', '-':'-', '*':'*', '/':'/'}
+if float(x[1])==0 and x[2] in ['div','mod','/']:
+  r = 'Деление на 0!'
+else: r = eval('('+x[0]+')'+act[x[2]]+x[1])
+print(r)
+
+#
+a, b, op = float(input()), float(input()), input()
+opers = {'mod': '%', 'div': '//', 'pow': '**'}
+try:
+    op = opers.get(op, op)
+    print(eval(f'a {op} b', {'a': a, 'b': b}))
+except ZeroDivisionError:
+    print('Деление на 0!')
+
+#
+import operator
+
+x = float(input())
+y = float(input())
+op = str(input())
+
+act = {'+': operator.add,
+       '-': operator.sub,
+       '/': operator.truediv,
+       '*': operator.mul,
+       'mod': operator.mod,
+       'pow': operator.pow,
+       'div': operator.floordiv}
+if (op == '/' or op == 'div' or op == 'mod') and y == 0:
+    print('Деление на 0!')
+else:
+    res = act[op](x,y)
+    print(res)
+
+#
+a = float(input())
+b = float(input())
+c = input()
+z_div = 'Деление на 0!'
+OPERATORS = {
+    "+": a + b,
+    "-": a - b,
+    "*": a * b,
+    "/": a / b if b else z_div,
+    "mod": a % b if b else z_div,
+    "div": a // b if b else z_div,
+    "pow": a ** b
+}
+print(OPERATORS[c])
+
+#
+a = input()
+b = input()
+oper = input()
+
+if oper in ('div', 'mod', '/') and float(b) == 0.0:
+    print("Деление на 0!")
+else:
+    if oper == 'mod':
+        oper = ' % '
+    if oper == 'pow':
+        oper = ' ** '
+    if oper == 'div':
+        oper = ' // '  
+    print(eval('(' + a + ') ' + oper + ' (' + b + ')'))
