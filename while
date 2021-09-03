@@ -1,0 +1,248 @@
+# ввод: целые числа построчно; вывод: сумма этих чисел сразу после введенного нуля
+sum = 0
+i = 1
+s = 0
+n = int(input())            # 0
+if n == 0:
+    print (n)
+while n != 0 and i != 0:
+    i = int(input())        # 5, -3, 8, 4, 0
+    s += i
+sum = s + n
+if sum != 0:
+    print (sum)            # 14
+
+#
+n = int(input())      # считываем целое число
+s = 0                 # сумма чисел изначально равна нулю
+while n != 0:         # запускаем цикл с условием
+    s = s + n         # прибавляем к сумме введённое число
+    n = int(input())  # просим ввести число повторно
+print(s)              # выводим сумму
+
+#
+s, n = 0, int(input())
+while n:
+    s, n = s + n, int(input())
+print(s)
+
+#
+a, b = 1, 0
+while a != 0:
+    a = int(input())
+    b += a
+print(b)
+
+#
+s, r = input(), 0
+while s != "0":
+    r += eval(s)
+    s = input()
+print(r)
+
+#
+import sys
+print(sum(int(x) for x in sys.stdin.readlines()))
+
+#
+import sys
+print(sum(map(int, sys.stdin.readlines())))
+
+# вход: два целых числа; выход: наименьший общий делитель этих чисел
+a = int(input())        # 7
+b = int(input())        # 5
+if a != 0 and b != 0:
+    nok = a
+    while nok % b != 0:
+        nok = nok + a
+print(nok)              # 35
+
+#
+a = int(input())
+b = int(input())
+d = a
+while d % b:
+    d += a
+print(d)
+
+#
+a = int(input())
+b = int(input())
+d = 1
+while (d%a + d%b) != 0:
+    d += 1
+print (d)
+
+#
+a=int(input())
+b=int(input())
+m=a
+if a==b:   # если оба значения (a и b) равны, выводим сразу это значение, и программа завершается.   
+  print(m)
+           # иначе, при помощи цикла, прибавляем к одному из значений(a или b) его же значение,
+else:      # а+а+... или b+b+...до тех пор, пока сумма не будет кратной введенным значениям a и b 
+  while m%a!=0 or m%b!=0: # ТАКОЙ способ позволяет не прерывать цикл. Ниже пояснение.
+    m=m+a
+  print(m)
+
+     # конструкция m%a!=0 or m%b!=0 - позволяет производить цикл до момента, когда оба условия одновременно
+     # станут False. Потому что помним(!!!), что цикл While работает только когда условие в нем True, если 
+     # становится False, то блок While перестает работать.
+        
+     # То есть, знаем что or - это суммирование(0+0=0, 0+1=1, 1+1=1), and - это умножение (0*0=0, 0*1=0, 1*1=1), 
+     # not - просто меняет значение на противоположное. В нашем примере у нас or. 
+     # Возвращаясь к нашему примеру m%a!=0 or m%b!=0, когда находится общее минимальное делимое число, то? 
+     # результат в условие станет следующий - False и False, то есть, False+False, плюсуем потому что or(помним) 
+     # а значит 0+0=0, а ноль это False, при котором циклл While прекращает свою работу.
+     # А пока он дошел до этого момента, он пербирал, к примеру, такие варианты, 
+     # как False+True=True, True+False=True, при которых цикл продолжал работать, потому как True.
+
+#
+n1, n2 = int(input()), int(input())
+a = n1
+b = n2
+while a != 0 and b !=0:
+    if a > b:
+        a = a % b
+    else:
+        b = b % a
+nod = a + b
+print(int((n1 * n2) / nod))
+
+#
+a, b, i = int(input()), int(input()), 1
+while not (i % a == 0 and i % b == 0):
+    i += 1
+print(i)
+
+#
+a = int(input())
+b = int(input())
+i = 1
+while (a * i) % b != 0:
+	i += 1
+print(a * i)
+
+#
+a, b = int(input()),int(input())
+ab = a * b      #поиск наибольшего общего делителя
+while b != 0:
+    a, b = b, a % b
+out = ab // a   #вычисляем наименьшее общее кратное
+print(out)
+
+#
+a, b = [int(input()) for i in range(2)]
+nok = a
+# до тех пор, пока количество биологов не делится без остатка на количество информатиков, while nok % b != 0:
+while nok % b != 0:
+    nok += a      # прибавлять к биологам их начальное количество nok += a
+print(nok)
+
+#
+a = int(input())
+b = int(input())
+t = 1
+while True:
+    if (t % a) == 0 and (t % b) == 0:
+        break
+    t += 1
+print(t)
+
+#
+a, b = int(input()),int(input())
+x = a; y = b
+while x != 0 and y != 0:
+	if x > y:
+		x = x % y
+	else:
+		y = y % x
+print(a * b // (x + y))
+
+#
+a = int(input())
+b = int(input())
+if a > b:     # Находим большее из введенных чисел и прибавляем его к самому себе, пока это накопление не начнет делиться на меньшее.
+    p = a
+    while p % b != 0:
+        p += a
+elif a < b:
+    p = b
+    while p % a != 0:
+        p += b
+else:
+    p = a
+print (p)
+
+#
+i = int(input())
+j = int(input())
+rez = i * j
+if i < j:
+    i, j = j, i
+while j:
+    i %= j
+    j, i = i, j
+print(rez // i)
+
+#
+from math import gcd
+a, b = int(input()), int(input())
+print(int(abs(a * b) / gcd(a, b)))
+
+from fractions import gcd
+a, b = int(input()), int(input())
+print(int((a * b) / gcd(a, b)))
+
+#
+i = 1
+while i > 0:
+    i = int(input())      # 12, 4, 2, 58, 112
+    if i >= 101:
+        break
+    if i >= 10:
+        print (i)         # 12, 58
+
+#
+while True:
+    number = int(input())
+    if number > 100:
+        break
+    if number < 10:
+        continue
+    print(number)
+
+#
+a = 0
+while a <= 100:
+    a = int(input())
+    if 10 <= a <= 100:
+        print(a)
+
+#
+while True:
+    a = int(input())
+    if a < 10:
+        continue
+    if a > 100:
+        break
+    print(a)
+
+#
+x = 0
+while x <= 100:
+    if x>9: print(x)
+    x = int(input())
+
+#
+while True:
+    a = int(input())
+    if (a < 10): continue
+    if (a > 100): break
+    print(a)
+
+#
+x = 0
+while x <= 100:
+    if x >= 10: print(x)
+    x = int(input())
